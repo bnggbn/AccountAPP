@@ -45,12 +45,21 @@
             this.label_Total = new System.Windows.Forms.Label();
             this.label_totalValue = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.AddType = new System.Windows.Forms.Button();
+            this.button_income = new System.Windows.Forms.Button();
+            this.button_expend = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_newType = new System.Windows.Forms.Label();
+            this.button_edit = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
+            this.textBox_newType = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Button_Input
             // 
-            this.Button_Input.Location = new System.Drawing.Point(230, 267);
+            this.Button_Input.Location = new System.Drawing.Point(230, 300);
             this.Button_Input.Name = "Button_Input";
             this.Button_Input.Size = new System.Drawing.Size(124, 58);
             this.Button_Input.TabIndex = 0;
@@ -71,7 +80,7 @@
             // dateTimePicker_searchDate
             // 
             this.dateTimePicker_searchDate.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dateTimePicker_searchDate.Location = new System.Drawing.Point(100, 109);
+            this.dateTimePicker_searchDate.Location = new System.Drawing.Point(104, 60);
             this.dateTimePicker_searchDate.Name = "dateTimePicker_searchDate";
             this.dateTimePicker_searchDate.Size = new System.Drawing.Size(139, 24);
             this.dateTimePicker_searchDate.TabIndex = 3;
@@ -80,7 +89,7 @@
             // 
             this.Today_datepicker.AutoSize = true;
             this.Today_datepicker.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Today_datepicker.Location = new System.Drawing.Point(3, 45);
+            this.Today_datepicker.Location = new System.Drawing.Point(6, 13);
             this.Today_datepicker.Name = "Today_datepicker";
             this.Today_datepicker.Size = new System.Drawing.Size(82, 21);
             this.Today_datepicker.TabIndex = 4;
@@ -90,7 +99,7 @@
             // 
             this.Target_Datepicker.AutoSize = true;
             this.Target_Datepicker.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Target_Datepicker.Location = new System.Drawing.Point(3, 111);
+            this.Target_Datepicker.Location = new System.Drawing.Point(7, 62);
             this.Target_Datepicker.Name = "Target_Datepicker";
             this.Target_Datepicker.Size = new System.Drawing.Size(74, 21);
             this.Target_Datepicker.TabIndex = 5;
@@ -155,10 +164,12 @@
             this.comboBox_Type.Name = "comboBox_Type";
             this.comboBox_Type.Size = new System.Drawing.Size(121, 24);
             this.comboBox_Type.TabIndex = 11;
+            this.comboBox_Type.SelectedIndexChanged += new System.EventHandler(this.comboBox_Type_SelectedIndexChanged);
+            this.comboBox_Type.Click += new System.EventHandler(this.comboBox_Type_Click);
             // 
             // Button_Search
             // 
-            this.Button_Search.Location = new System.Drawing.Point(250, 105);
+            this.Button_Search.Location = new System.Drawing.Point(254, 56);
             this.Button_Search.Name = "Button_Search";
             this.Button_Search.Size = new System.Drawing.Size(94, 38);
             this.Button_Search.TabIndex = 12;
@@ -170,7 +181,7 @@
             // 
             this.label_todayDate.AutoSize = true;
             this.label_todayDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_todayDate.Location = new System.Drawing.Point(101, 45);
+            this.label_todayDate.Location = new System.Drawing.Point(104, 13);
             this.label_todayDate.Name = "label_todayDate";
             this.label_todayDate.Size = new System.Drawing.Size(88, 21);
             this.label_todayDate.TabIndex = 13;
@@ -180,32 +191,119 @@
             // 
             this.label_Total.AutoSize = true;
             this.label_Total.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_Total.Location = new System.Drawing.Point(15, 180);
+            this.label_Total.Location = new System.Drawing.Point(22, 37);
             this.label_Total.Name = "label_Total";
-            this.label_Total.Size = new System.Drawing.Size(66, 21);
+            this.label_Total.Size = new System.Drawing.Size(50, 21);
             this.label_Total.TabIndex = 14;
-            this.label_Total.Text = "總資產 :";
+            this.label_Total.Text = "存款 :";
             // 
             // label_totalValue
             // 
             this.label_totalValue.AutoSize = true;
             this.label_totalValue.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_totalValue.Location = new System.Drawing.Point(92, 179);
+            this.label_totalValue.Location = new System.Drawing.Point(104, 37);
             this.label_totalValue.Name = "label_totalValue";
-            this.label_totalValue.Size = new System.Drawing.Size(45, 21);
+            this.label_totalValue.Size = new System.Drawing.Size(20, 21);
             this.label_totalValue.TabIndex = 15;
-            this.label_totalValue.Text = "total";
+            this.label_totalValue.Text = "0";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // AddType
+            // 
+            this.AddType.Location = new System.Drawing.Point(230, 259);
+            this.AddType.Name = "AddType";
+            this.AddType.Size = new System.Drawing.Size(124, 35);
+            this.AddType.TabIndex = 16;
+            this.AddType.Text = "新增類別";
+            this.AddType.UseVisualStyleBackColor = true;
+            this.AddType.Click += new System.EventHandler(this.AddType_Click);
+            // 
+            // button_income
+            // 
+            this.button_income.Location = new System.Drawing.Point(46, 34);
+            this.button_income.Name = "button_income";
+            this.button_income.Size = new System.Drawing.Size(66, 33);
+            this.button_income.TabIndex = 17;
+            this.button_income.Text = "收入";
+            this.button_income.UseVisualStyleBackColor = true;
+            this.button_income.Visible = false;
+            this.button_income.Click += new System.EventHandler(this.button_income_Click);
+            // 
+            // button_expend
+            // 
+            this.button_expend.Location = new System.Drawing.Point(111, 34);
+            this.button_expend.Name = "button_expend";
+            this.button_expend.Size = new System.Drawing.Size(68, 33);
+            this.button_expend.TabIndex = 18;
+            this.button_expend.Text = "支出";
+            this.button_expend.UseVisualStyleBackColor = true;
+            this.button_expend.Visible = false;
+            this.button_expend.Click += new System.EventHandler(this.button_expend_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label_newType);
+            this.panel1.Controls.Add(this.button_edit);
+            this.panel1.Controls.Add(this.button_cancel);
+            this.panel1.Controls.Add(this.textBox_newType);
+            this.panel1.Controls.Add(this.button_income);
+            this.panel1.Controls.Add(this.button_expend);
+            this.panel1.Location = new System.Drawing.Point(14, 139);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 123);
+            this.panel1.TabIndex = 19;
+            this.panel1.Visible = false;
+            // 
+            // label_newType
+            // 
+            this.label_newType.AutoSize = true;
+            this.label_newType.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_newType.Location = new System.Drawing.Point(10, 9);
+            this.label_newType.Name = "label_newType";
+            this.label_newType.Size = new System.Drawing.Size(58, 21);
+            this.label_newType.TabIndex = 24;
+            this.label_newType.Text = "新類別";
+            // 
+            // button_edit
+            // 
+            this.button_edit.Location = new System.Drawing.Point(2, 85);
+            this.button_edit.Name = "button_edit";
+            this.button_edit.Size = new System.Drawing.Size(66, 33);
+            this.button_edit.TabIndex = 22;
+            this.button_edit.Text = "確認新增";
+            this.button_edit.UseVisualStyleBackColor = true;
+            this.button_edit.Visible = false;
+            this.button_edit.Click += new System.EventHandler(this.button_edit_Click);
+            // 
+            // button_cancel
+            // 
+            this.button_cancel.Location = new System.Drawing.Point(128, 85);
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.Size = new System.Drawing.Size(68, 33);
+            this.button_cancel.TabIndex = 23;
+            this.button_cancel.Text = "取消";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Visible = false;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            // 
+            // textBox_newType
+            // 
+            this.textBox_newType.Location = new System.Drawing.Point(67, 9);
+            this.textBox_newType.Name = "textBox_newType";
+            this.textBox_newType.Size = new System.Drawing.Size(121, 22);
+            this.textBox_newType.TabIndex = 21;
             // 
             // Account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(907, 377);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.AddType);
             this.Controls.Add(this.label_totalValue);
             this.Controls.Add(this.label_Total);
             this.Controls.Add(this.label_todayDate);
@@ -221,11 +319,14 @@
             this.Controls.Add(this.dateTimePicker_searchDate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Button_Input);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.Name = "Account";
             this.Text = "記帳器";
             this.Load += new System.EventHandler(this.Account_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,6 +350,14 @@
         private System.Windows.Forms.Label label_Total;
         private System.Windows.Forms.Label label_totalValue;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button AddType;
+        private System.Windows.Forms.Button button_income;
+        private System.Windows.Forms.Button button_expend;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox_newType;
+        private System.Windows.Forms.Label label_newType;
+        private System.Windows.Forms.Button button_edit;
+        private System.Windows.Forms.Button button_cancel;
     }
 }
 
