@@ -32,8 +32,13 @@
             this.Button_Input = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker_searchDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_input = new System.Windows.Forms.DateTimePicker();
             this.Today_datepicker = new System.Windows.Forms.Label();
             this.Target_Datepicker = new System.Windows.Forms.Label();
+            this.label_inputDate = new System.Windows.Forms.Label();
+            this.button_delete = new System.Windows.Forms.Button();
+            this.Button_Schedule = new System.Windows.Forms.Button();
+            this.Button_Import = new System.Windows.Forms.Button();
             this.label_accountName = new System.Windows.Forms.Label();
             this.label_accountType = new System.Windows.Forms.Label();
             this.label_accountValue = new System.Windows.Forms.Label();
@@ -59,9 +64,9 @@
             // 
             // Button_Input
             // 
-            this.Button_Input.Location = new System.Drawing.Point(230, 300);
+            this.Button_Input.Location = new System.Drawing.Point(230, 330);
             this.Button_Input.Name = "Button_Input";
-            this.Button_Input.Size = new System.Drawing.Size(124, 58);
+            this.Button_Input.Size = new System.Drawing.Size(110, 36);
             this.Button_Input.TabIndex = 0;
             this.Button_Input.Text = "輸入項目";
             this.Button_Input.UseVisualStyleBackColor = true;
@@ -74,16 +79,27 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(522, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(540, 350);
             this.dataGridView1.TabIndex = 1;
             // 
             // dateTimePicker_searchDate
             // 
+            this.dateTimePicker_searchDate.CustomFormat = "yyyy年MM月";
             this.dateTimePicker_searchDate.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dateTimePicker_searchDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_searchDate.Location = new System.Drawing.Point(104, 60);
             this.dateTimePicker_searchDate.Name = "dateTimePicker_searchDate";
+            this.dateTimePicker_searchDate.ShowUpDown = true;
             this.dateTimePicker_searchDate.Size = new System.Drawing.Size(139, 24);
             this.dateTimePicker_searchDate.TabIndex = 3;
+            // 
+            // dateTimePicker_input
+            // 
+            this.dateTimePicker_input.Font = new System.Drawing.Font("新細明體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dateTimePicker_input.Location = new System.Drawing.Point(85, 185);
+            this.dateTimePicker_input.Name = "dateTimePicker_input";
+            this.dateTimePicker_input.Size = new System.Drawing.Size(139, 24);
+            this.dateTimePicker_input.TabIndex = 25;
             // 
             // Today_datepicker
             // 
@@ -105,11 +121,22 @@
             this.Target_Datepicker.TabIndex = 5;
             this.Target_Datepicker.Text = "查詢日期";
             // 
+            // 
+            // label_inputDate
+            // 
+            this.label_inputDate.AutoSize = true;
+            this.label_inputDate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_inputDate.Location = new System.Drawing.Point(24, 187);
+            this.label_inputDate.Name = "label_inputDate";
+            this.label_inputDate.Size = new System.Drawing.Size(58, 21);
+            this.label_inputDate.TabIndex = 26;
+            this.label_inputDate.Text = "記帳日";
+            // 
             // label_accountName
             // 
             this.label_accountName.AutoSize = true;
             this.label_accountName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_accountName.Location = new System.Drawing.Point(24, 269);
+            this.label_accountName.Location = new System.Drawing.Point(24, 220);
             this.label_accountName.Name = "label_accountName";
             this.label_accountName.Size = new System.Drawing.Size(42, 21);
             this.label_accountName.TabIndex = 6;
@@ -119,7 +146,7 @@
             // 
             this.label_accountType.AutoSize = true;
             this.label_accountType.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_accountType.Location = new System.Drawing.Point(24, 300);
+            this.label_accountType.Location = new System.Drawing.Point(24, 255);
             this.label_accountType.Name = "label_accountType";
             this.label_accountType.Size = new System.Drawing.Size(42, 21);
             this.label_accountType.TabIndex = 7;
@@ -129,7 +156,7 @@
             // 
             this.label_accountValue.AutoSize = true;
             this.label_accountValue.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_accountValue.Location = new System.Drawing.Point(24, 330);
+            this.label_accountValue.Location = new System.Drawing.Point(24, 292);
             this.label_accountValue.Name = "label_accountValue";
             this.label_accountValue.Size = new System.Drawing.Size(42, 21);
             this.label_accountValue.TabIndex = 8;
@@ -137,14 +164,14 @@
             // 
             // textbox_Name
             // 
-            this.textbox_Name.Location = new System.Drawing.Point(85, 268);
+            this.textbox_Name.Location = new System.Drawing.Point(85, 218);
             this.textbox_Name.Name = "textbox_Name";
             this.textbox_Name.Size = new System.Drawing.Size(121, 22);
             this.textbox_Name.TabIndex = 9;
             // 
             // textBox_Pay
             // 
-            this.textBox_Pay.Location = new System.Drawing.Point(85, 331);
+            this.textBox_Pay.Location = new System.Drawing.Point(85, 291);
             this.textBox_Pay.Name = "textBox_Pay";
             this.textBox_Pay.Size = new System.Drawing.Size(121, 22);
             this.textBox_Pay.TabIndex = 10;
@@ -160,7 +187,7 @@
             "年繳",
             "上班收入",
             "投資收入"});
-            this.comboBox_Type.Location = new System.Drawing.Point(85, 301);
+            this.comboBox_Type.Location = new System.Drawing.Point(85, 253);
             this.comboBox_Type.Name = "comboBox_Type";
             this.comboBox_Type.Size = new System.Drawing.Size(121, 24);
             this.comboBox_Type.TabIndex = 11;
@@ -211,12 +238,13 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AddType
             // 
-            this.AddType.Location = new System.Drawing.Point(230, 259);
+            this.AddType.Location = new System.Drawing.Point(230, 287);
             this.AddType.Name = "AddType";
-            this.AddType.Size = new System.Drawing.Size(124, 35);
+            this.AddType.Size = new System.Drawing.Size(110, 35);
             this.AddType.TabIndex = 16;
             this.AddType.Text = "新增類別";
             this.AddType.UseVisualStyleBackColor = true;
@@ -291,6 +319,36 @@
             this.button_cancel.Visible = false;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
+            // button_delete
+            // 
+            this.button_delete.Location = new System.Drawing.Point(376, 368);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(100, 28);
+            this.button_delete.TabIndex = 27;
+            this.button_delete.Text = "刪除選取";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.Button_Delete_Click);
+            // 
+            // Button_Schedule
+            // 
+            this.Button_Schedule.Location = new System.Drawing.Point(488, 368);
+            this.Button_Schedule.Name = "Button_Schedule";
+            this.Button_Schedule.Size = new System.Drawing.Size(100, 28);
+            this.Button_Schedule.TabIndex = 28;
+            this.Button_Schedule.Text = "定期項目";
+            this.Button_Schedule.UseVisualStyleBackColor = true;
+            this.Button_Schedule.Click += new System.EventHandler(this.Button_Schedule_Click);
+            // 
+            // Button_Import
+            // 
+            this.Button_Import.Location = new System.Drawing.Point(600, 368);
+            this.Button_Import.Name = "Button_Import";
+            this.Button_Import.Size = new System.Drawing.Size(110, 28);
+            this.Button_Import.TabIndex = 29;
+            this.Button_Import.Text = "匯入 Excel";
+            this.Button_Import.UseVisualStyleBackColor = true;
+            this.Button_Import.Click += new System.EventHandler(this.Button_Import_Click);
+            // 
             // textBox_newType
             // 
             this.textBox_newType.Location = new System.Drawing.Point(67, 9);
@@ -301,7 +359,10 @@
             // Account
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(907, 377);
+            this.ClientSize = new System.Drawing.Size(930, 410);
+            this.Controls.Add(this.Button_Import);
+            this.Controls.Add(this.Button_Schedule);
+            this.Controls.Add(this.button_delete);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.AddType);
             this.Controls.Add(this.label_totalValue);
@@ -314,6 +375,8 @@
             this.Controls.Add(this.label_accountValue);
             this.Controls.Add(this.label_accountType);
             this.Controls.Add(this.label_accountName);
+            this.Controls.Add(this.label_inputDate);
+            this.Controls.Add(this.dateTimePicker_input);
             this.Controls.Add(this.Target_Datepicker);
             this.Controls.Add(this.Today_datepicker);
             this.Controls.Add(this.dateTimePicker_searchDate);
@@ -358,6 +421,11 @@
         private System.Windows.Forms.Label label_newType;
         private System.Windows.Forms.Button button_edit;
         private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_input;
+        private System.Windows.Forms.Label label_inputDate;
+        private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button Button_Schedule;
+        private System.Windows.Forms.Button Button_Import;
     }
 }
 
